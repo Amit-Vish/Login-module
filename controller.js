@@ -1,10 +1,13 @@
 ﻿var app = angular.module('app',[]);
-app.controller('crudController', function ($scope) {
-    $scope.name = 'amit';
-    $scope.addPopUp = function () {
+app.controller('crudController',['$scope','svc', function (scope,svc) {
+    scope.name = 'amit';
+    scope.addPopUp = function () {
         angular.element('.addPopup').show();
     };
-    $scope.closePopup = function () {
+    scope.closePopup = function () {
         angular.element('.addPopup').hide();
     };
-});
+    svc.getResult().then(function () {
+        debugger;
+    });
+}]);
